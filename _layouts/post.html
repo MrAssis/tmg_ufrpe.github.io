@@ -1,0 +1,66 @@
+---
+layout: page
+---
+
+
+
+<div class="post">
+  <!-- Wrapper Start -->
+  <section id="intro" style="border: 1px dotted #ddd;">
+    <div class="container">
+      <div class="row">
+        <div>
+          {% if page.image %}
+          <img src="{{ page.image }}" alt="Member" style="border-radius: 8px; height:100px; width:100px; ">
+          {% endif %}
+          <div class="block">
+            <h1>{{ page.title }}</h1>
+
+            {% if page.image_project %}
+            <p>
+              <b>Status:</b> {{ page.status }} <br>
+              <b>Category:</b> {{ page.subtitle }} <br>
+              <b>Author:</b> {{ page.author }} <br>
+            </p>
+            {% endif %}
+
+            {% if page.email %}
+            Email: <a href="{{ page.email }}" target="blank">{{ page.email }}</a>
+            {% endif %}
+
+            <br>
+
+            {% if page.cvlattes %}
+            CV Lattes: <a href="{{ page.cvlattes }}" target="blank">{{ page.cvlattes }}</a>
+            {% endif %}
+
+            <div class="post-info-wrapper">
+              {% if page.image_project %}
+
+              {% else %}
+              <p class="italic">By <span class="bold">{{ page.author }}</span> on <span class="bold">{{ page.date |
+                  date: "%B %-d, %Y" }}</span>
+                {% endif %}
+            </div>
+
+            <hr />
+
+            <p>{{ content }}</p>
+
+          </div>
+        </div><!-- .col-md-7 close -->
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<p class="center-text" style="padding: 30px;">
+  {% if page.categories contains 'people' %}
+  <a href="{{ site.baseurl }}/people">Back to People</a>
+  {% else if page.categories contains 'projects' %}
+  <a href="{{ site.baseurl }}/projects">Back to Projects</a>
+  {% else if page.categories contains 'news' %}
+  <a href="{{ site.baseurl }}/blog">Back to Blog</a>
+  {% endif %}
+</p>
